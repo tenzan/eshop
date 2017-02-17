@@ -1,13 +1,22 @@
 <% title(@product.name)%>
 
-<h1><%= @product.name %></h1>
+<header>
+  <h1><%= @product.name %></h1>
 
-<%= link_to 'Edit Product', edit_product_path(@product) %>
-<%= link_to 'Delete Product',
-    product_path(@product), 
-    method: :delete,
-    data: { confirm: "Are you sure you want to delete this product>"}
-%>
+  <ul class="actions">
+    <li>
+      <%= link_to 'Edit Product',
+      edit_product_path(@product), class: "edit" %>
+    </li>
+    <li>
+      <%= link_to'Delete Product',
+      product_path(@product),
+      method: :delete,
+      data: { confirm: "Are you sure you want to delete this product?"},
+      class: "delete" %>
+    </li>
+  </ul>
+</header>
 
 <p><%= @product.description %></p>
 <p><%= @product.price %></p>
