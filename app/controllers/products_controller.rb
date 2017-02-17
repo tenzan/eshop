@@ -14,7 +14,8 @@ class ProductsController < ApplicationController
       flash[:notice] = 'Product has been created.'
       redirect_to @product
     else
-      # nothing yet
+      flash.now[:alert] = 'Product has not been created.'
+      render 'new'
     end
   end
 

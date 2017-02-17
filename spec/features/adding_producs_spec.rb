@@ -1,11 +1,13 @@
 require 'rails_helper'
 
 RSpec.feature 'Users can add new products' do
-  scenario 'with valid attributes' do
+
+  before do
     visit '/'
-
     click_link 'New Product'
+  end
 
+  scenario 'with valid attributes' do
     fill_in 'Name', with: 'Shampoo'
     fill_in 'Description', with: 'New shampoo'
     fill_in 'Price', with: 33.00
@@ -19,5 +21,13 @@ RSpec.feature 'Users can add new products' do
 
     title = 'Shampoo - Eshop'
     expect(page).to have_title title
+  end
+
+  scenario 'when providing invalid attributes' do
+    click_button 'Create Product'
+
+    expect(page).to have_content 'Product has not been created.'
+    expect(page).to have_content "Name can't be blank"
+    expect(page).to have_content "Price can't be blank"
   end
 end
