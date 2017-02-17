@@ -13,5 +13,11 @@ RSpec.feature 'Users can add new products' do
     click_button 'Create Product'
 
     expect(page).to have_content 'Product has been created.'
+
+    product = Product.find_by(name: 'Shampoo')
+    expect(page.current_url).to eq product_url(product)
+
+    title = 'Shampoo - Eshop'
+    expect(page).to have_title title
   end
 end
