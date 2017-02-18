@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can add new products' do
 
   before do
+    login_as(FactoryGirl.create(:user, :admin))
     visit '/'
     click_link 'New Product'
   end
