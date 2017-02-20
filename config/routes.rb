@@ -4,7 +4,11 @@ Rails.application.routes.draw do
     root "application#index"
 
     resources :products, only: [:new, :create, :edit, :update, :destroy]
-    resources :users
+    resources :users do
+      member do
+        patch :archive
+      end
+    end
   end
 
   devise_for :users
