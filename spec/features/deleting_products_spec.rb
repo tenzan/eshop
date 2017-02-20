@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe "Users can delete products" do
+
+  before do
+    login_as(FactoryGirl.create(:user, :admin))
+  end
+
   scenario 'successfully' do
     FactoryGirl.create(:product, name: 'Shampoo', price: 33.44)
 
