@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature 'Users can edit existing products' do
 
   before do
+    login_as(FactoryGirl.create(:user, :admin))
     FactoryGirl.create(:product, name: 'Shampoo', price: 33.44)
     visit '/'
     click_link 'Shampoo'

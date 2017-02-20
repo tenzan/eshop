@@ -16,6 +16,21 @@ class Admin::ProductsController < Admin::ApplicationController
     end
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    if @product.update(product_params)
+      flash[:notice] = 'Product has been updated.'
+      redirect_to @product
+    else
+      flash.now[:alert] = "Product has not been updated."
+      render "edit"
+    end
+  end
+
   def destroy
     @product = Product.find(params[:id])
     @product.destroy

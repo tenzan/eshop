@@ -13,6 +13,10 @@ feature 'Users can only see the appropriate links' do
       visit product_path(product)
       expect(page).not_to have_link "Delete Product"
     end
+    scenario "cannot see the Edit Product link" do
+      visit product_path(product)
+      expect(page).not_to have_link "Edit Product"
+    end
   end
 
   context "reguler users" do
@@ -26,6 +30,10 @@ feature 'Users can only see the appropriate links' do
       visit product_path(product)
       expect(page).not_to have_link "Delete Product"
     end
+    scenario "cannot see the Edit Product link" do
+      visit product_path(product)
+      expect(page).not_to have_link "Edit Product"
+    end
   end
 
   context "admin users" do
@@ -35,9 +43,13 @@ feature 'Users can only see the appropriate links' do
       visit '/'
       expect(page).to have_link 'New Product'
     end
-    scenario "cannot see the Delete Product link" do
+    scenario "can see the Delete Product link" do
       visit product_path(product)
       expect(page).to have_link "Delete Product"
+    end
+    scenario "can see the Edit Product link" do
+      visit product_path(product)
+      expect(page).to have_link "Edit Product"
     end
   end
 end
