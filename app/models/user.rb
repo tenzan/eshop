@@ -6,6 +6,8 @@ class User < ApplicationRecord
 
   scope :excluding_archived, lambda {where(archived_at: nil)}
 
+  validates :first_name, :last_name, presence: true
+
   def to_s
     "#{email} #{admin? ? "(Admin)" : ""}"
   end

@@ -47,7 +47,7 @@ class Admin::UsersController < Admin::ApplicationController
       @user.archive
       flash[:notice] = "User has been archived."
     end
-    
+
     redirect_to admin_users_path
   end
 
@@ -58,6 +58,6 @@ class Admin::UsersController < Admin::ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :admin)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :admin)
   end
 end

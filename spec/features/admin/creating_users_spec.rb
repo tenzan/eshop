@@ -10,6 +10,8 @@ feature "Admins can create new users" do
   end
 
   scenario "with valid credentials" do
+    fill_in "First name", with: "Jon"
+    fill_in "Last name", with: "Doe"
     fill_in "Email", with: "newbie@example.com"
     fill_in "Password", with: "password"
     click_button "Create User"
@@ -17,6 +19,8 @@ feature "Admins can create new users" do
   end
 
   scenario "when the new user is an admin" do
+    fill_in "First name", with: "Jon"
+    fill_in "Last name", with: "Doe"
     fill_in "Email", with: "admin@example.com"
     fill_in "Password", with: "password"
     check "Is an admin?"
