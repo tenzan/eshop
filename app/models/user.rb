@@ -9,7 +9,7 @@ class User < ApplicationRecord
   validates :first_name, :last_name, presence: true
 
   def to_s
-    "#{email} #{admin? ? "(Admin)" : ""}"
+    "#{last_name}, #{first_name} - #{email} #{admin? ? "(Admin)" : ""}"
   end
 
   def archive

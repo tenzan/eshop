@@ -2,7 +2,7 @@ class Admin::UsersController < Admin::ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :archive]
 
   def index
-    @users = User.excluding_archived.order(:email)
+    @users = User.excluding_archived.order(:last_name)
   end
 
   def new

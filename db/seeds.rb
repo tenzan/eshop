@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 unless User.exists?(email: "admin@example.com")
-  User.create!(email: "admin@example.com", password: "password", admin: true)
-  User.create!(email: "guest@example.com", password: "password")
+  User.create!(first_name: "Admin", last_name: "Admin", email: "admin@example.com", password: "password", admin: true)
+  User.create!(first_name: "Guest", last_name: "Guest", email: "guest@example.com", password: "password")
 end
 
 ["Shampoo", "Conditioner"].each do |name|
