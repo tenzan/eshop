@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe ProductsController, type: :controller do
+describe ProductsController, type: :controller do
   it 'handles a missing product correctly' do
-    get :show, id: 'not-here'
+    get :show, params: { id: 'not-here' }
 
     expect(response).to redirect_to(products_path)
 

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature 'Signed-in users can sign out' do
+feature 'Signed-in users can sign out' do
   let!(:user) { FactoryGirl.create(:user) }
 
   before do
